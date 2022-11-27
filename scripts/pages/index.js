@@ -1,4 +1,4 @@
-// Index page
+// INDEX PAGE
 
 const recipeCardsContainer = document.querySelector('#recipe-cards-container');
 

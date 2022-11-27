@@ -1,4 +1,4 @@
-// Recipe cards factory
+// RECIPE CARDS FACTORY
 
 function recipeFactory(data){
     const { name, ingredients, time, description } = data;
