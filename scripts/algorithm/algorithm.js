@@ -1,6 +1,6 @@
 function filterRecipes(e){
 
-    if(e.target.value.length < 3){
+    if(e.target.value.length < 3 && e.target.value.length !== 0){
         return;
     }
 
