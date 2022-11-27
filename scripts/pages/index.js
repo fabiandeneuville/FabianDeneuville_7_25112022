@@ -4,22 +4,18 @@ const recipeCardsContainer = document.querySelector('#recipe-cards-container');
 
 let recipesList = [];
 
-async function fetchAllRecipes(){
+async function getAllRecipes(){
     const response = await fetch('../../assets/datas/recipes.json');
-    const recipes = await response.json();
-    return recipes;
+    const results = await response.json();
+    recipesList = results
+    createRecipesList(recipesList);
 }
 
-async function displayRecipes(){
-    recipesList.forEach((recipe) => {
-        const recipeCard = recipeFactory(recipe).createRecipeCard();
-        recipeCardsContainer.appendChild(recipeCard);
-    })
-}
+getAllRecipes()
 
-async function init(){
-    recipesList = await fetchAllRecipes();
-    displayRecipes();
+function createRecipesList(array){
+    array.forEach(element => {
+        const recipeCard = recipeFactory(element).createRecipeCard();
+        recipeCardsContainer.appendChild(recipeCard)
+    });
 }
-
-init();
