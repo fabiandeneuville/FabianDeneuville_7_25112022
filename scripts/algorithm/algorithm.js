@@ -5,6 +5,7 @@ function filterRecipes(e){
     }
 
     recipeCardsContainer.innerHTML = "";
+
     const searchedString = e.target.value.toLowerCase();
     const filteredRecipesList = recipesList.filter((recipe) => {
         return (
@@ -13,6 +14,9 @@ function filterRecipes(e){
             getIngredients(recipe).toLowerCase().includes(searchedString)
         )
     })
+
+    noRecipesMessage.style.display = filteredRecipesList.length === 0 ? "block" : "none";
+
     createRecipesList(filteredRecipesList);
 }
 

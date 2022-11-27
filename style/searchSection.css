@@ -42,6 +42,17 @@
     gap: 50px;
 }
 
+#no-recipes-message {
+    display: none;
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    color: #D04F4F;
+}
+
 @media screen and (max-width:768px){
     #search-section, #recipe-cards-container {
         width: 95%;
