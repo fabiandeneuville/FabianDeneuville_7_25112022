@@ -15,8 +15,10 @@ async function getAllRecipes(){
 getAllRecipes()
 
 function createRecipesList(array){
+    console.time("data-display-on-page-load")
     array.forEach(element => {
         const recipeCard = recipeFactory(element).createRecipeCard();
         recipeCardsContainer.appendChild(recipeCard)
     });
+    console.timeEnd("data-display-on-page-load")
 }
