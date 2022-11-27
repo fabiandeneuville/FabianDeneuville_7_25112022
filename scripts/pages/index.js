@@ -1,4 +1,5 @@
 // INDEX PAGE
+console.log('Array methods algorithm')
 
 const recipeCardsContainer = document.querySelector('#recipe-cards-container');
 
