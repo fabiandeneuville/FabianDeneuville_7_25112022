@@ -20,24 +20,16 @@
     font-family: 'Lato', Arial, Helvetica, sans-serif;
 }
 
-#search-button {
+#search-icon {
     position: absolute;
+    display: block;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     height: 32px;
     width: 32px;
     font-size: 32px;
-    cursor: pointer;
-    border: none;
-    background: none;
     color: #333;
-    transition: all 0.2s ease;
-}
-
-#search-button:hover {
-    transform: translateY(-50%) scale(1.1);
-    color: #D04F4F;
 }
 
 #recipe-cards-container {
