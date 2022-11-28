@@ -7,20 +7,16 @@ function filterRecipes(e){
     recipeCardsContainer.innerHTML = "";
 
     const searchedString = e.target.value.toLowerCase();
+
     const filteredRecipesList = recipesList.filter((recipe) => {
         return (
             recipe.name.toLowerCase().includes(searchedString) ||
             recipe.description.toLowerCase().includes(searchedString) ||
-            getIngredients(recipe).toLowerCase().includes(searchedString)
+            getIngredientsFromRecipe(recipe).includes(searchedString)
         )
     })
 
     noRecipesMessage.style.display = filteredRecipesList.length === 0 ? "block" : "none";
 
     createRecipesList(filteredRecipesList);
-}
-
-function getIngredients(recipe){
-    const ingredients = recipe.ingredients.map((item) => item.ingredient);
-    return ingredients.toString();
 }
