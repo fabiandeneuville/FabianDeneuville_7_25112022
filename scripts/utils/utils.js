@@ -25,6 +25,18 @@ function getAppliancesFromRecipesList(recipesList){
     return sortedAllAppliancesOnce;
 }
 
+function getAllUstensilsFromRecipesList(recipesList){
+    const allUstensils = [];
+    recipesList.forEach((recipe) => {
+        allUstensils.push(recipe.ustensils);
+    })
+    const allUstensilsFlat = allUstensils.flat();
+    const allUstensilsFlatCapitalized = allUstensilsFlat.map((ustensil) => capitalize(ustensil));
+    const allUstensilsFlatCapitalizedOnce = [...new Set(allUstensilsFlatCapitalized)];
+    const sortedAllUstensilsFlatCapitalizedOnce = allUstensilsFlatCapitalizedOnce.sort((a, b) => a.localeCompare(b));
+    return sortedAllUstensilsFlatCapitalizedOnce;
+}
+
 function capitalize(string){
     if(string === ""){
         return
