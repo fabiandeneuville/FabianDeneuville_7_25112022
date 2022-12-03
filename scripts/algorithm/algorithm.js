@@ -1,5 +1,7 @@
 // ALGORITHM
 
+let currentSearch = [];
+
 function filterRecipes(e){
 
     if(e.target.value.length < 3 && e.target.value.length !== 0){
@@ -19,6 +21,9 @@ function filterRecipes(e){
     })
 
     noRecipesMessage.style.display = filteredRecipesList.length === 0 ? "block" : "none";
+
+    currentSearch = filteredRecipesList;
+    console.log(currentSearch)
 
     createRecipesList(filteredRecipesList);
 }

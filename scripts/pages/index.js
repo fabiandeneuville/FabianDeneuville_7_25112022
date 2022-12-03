@@ -17,6 +17,7 @@ async function getAllRecipes(){
     console.time("data-display-on-page-load");
     createRecipesList(recipesList);
     console.timeEnd("data-display-on-page-load");
+    currentSearch = results;
 }
 
 init();
