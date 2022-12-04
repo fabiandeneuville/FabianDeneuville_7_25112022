@@ -59,3 +59,30 @@ function capitalize(string){
     const capitalizedString = capitalized.join('');
     return capitalizedString;
 }
+
+function displayListItems(recipesList, type, container){
+    let listOfItemToDisplay = [];
+    switch(type){
+        case "ingredients" :
+            listOfItemToDisplay = getAllIngredientsFromRecipesList(recipesList);
+            break;
+        case "appliances" :
+            listOfItemToDisplay = getAppliancesFromRecipesList(recipesList);
+            break;
+        case "ustensils" : 
+            listOfItemToDisplay = getAllUstensilsFromRecipesList(recipesList);
+            break
+    }
+    container.innerHTML = "";
+    if(listOfItemToDisplay.length === 0){
+        container.innerHTML = `
+            <p>Aucun résultat</p>
+        `
+    }
+    listOfItemToDisplay.forEach((item) => {
+        const spanItem = document.createElement('span');
+        spanItem.classList.add('list-item');
+        spanItem.textContent = item;
+        container.appendChild(spanItem);
+    })
+}

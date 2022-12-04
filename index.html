@@ -37,7 +37,30 @@
 
         </section>
         <!--TAGS CONTAINER END-->
+        <!--AVANCED SEARCH START-->
         <!--RECIPES CARDS CONTAINER START-->
+
+        <section id="advanced-search">
+            <div class="advanced-search-field ingredients-field" data-type="ingredients">
+                <span class="advanced-search-title">Ingredients</span><i class="chevron fa-solid fa-chevron-down"></i>
+                <input class="advanced-search-input field-closed" type="text" placeholder="Rechercher">
+                <div class="advanced-search-tags-container ingredients-container field-closed"></div>
+            </div>
+    
+            <div class="advanced-search-field appliances-field" data-type="appliances">
+                <span class="advanced-search-title">Appareils</span><i class="chevron fa-solid fa-chevron-down"></i>
+                <input class="advanced-search-input field-closed" type="text" placeholder="Rechercher">
+                <div class="advanced-search-tags-container appliances-container field-closed"></div>
+            </div>
+    
+            <div class="advanced-search-field ustensils-field" data-type="ustensils">
+                <span class="advanced-search-title">Ustensils</span><i class="chevron fa-solid fa-chevron-down"></i>
+                <input class="advanced-search-input field-closed" type="text" placeholder="Rechercher">
+                <div class="advanced-search-tags-container ustensils-container field-closed"></div>
+            </div>
+        </section>
+
+        <!--RECIPES CARDS CONTAINER END-->
         <section id="recipe-cards-container">
 
             <!--RECIPES CARDS TO BE INSERTED HERE-->
@@ -51,6 +74,7 @@
     <!--MAIN END-->
     <script src="./scripts/factory/recipe.js"></script>
     <script src="./scripts/utils/utils.js"></script>
+    <script src="./scripts/components/advancedSearchField.js"></script>
     <script src="./scripts/algorithm/algorithm.js"></script>
     <script src="./scripts/pages/index.js"></script>
 </body>

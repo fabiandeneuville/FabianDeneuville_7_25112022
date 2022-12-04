@@ -1,5 +1,6 @@
 @import url('./searchSection.css');
 @import url('./recipeCard.css');
+@import url('./advancedSearch.css');
 
 *, ::before, ::after {
     margin: 0;
