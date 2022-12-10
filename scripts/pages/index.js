@@ -1,6 +1,11 @@
 // INDEX PAGE
 
 let currentSearch = [];
+let tagsList = [
+    {content: 'chocolat', type: 'ingredient'},
+    {content: 'four', type: 'appliance'},
+    {content: 'couteau', type: 'ustensil'}
+];
 
 console.log('Array methods algorithm');
 
@@ -12,6 +17,8 @@ const ingredientsContainer = document.querySelector('.ingredients-container');
 const appliancesContainer = document.querySelector('.appliances-container');
 const ustensilsContainer = document.querySelector('.ustensils-container');
 const advancedSearchFields = document.querySelectorAll('.advanced-search-field');
+const tagsContainer = document.getElementById('tags-container');
+const tags = document.querySelectorAll('.tag');
 
 let recipesList = [];
 
@@ -32,10 +39,10 @@ init();
 
 async function init(){
     getAllRecipes();
-    displayAllTags()
+    displayAllListItems()
 }
 
-async function displayAllTags(){
+async function displayAllListItems(){
     const recipes = await getAllRecipes();
     displayListItems(getAllIngredientsFromRecipesList(recipes), 'ingredients');
     displayListItems(getAllAppliancesFromRecipesList(recipes), 'appliances');
@@ -64,3 +71,5 @@ advancedSearchFields.forEach((field) => {
     input.addEventListener('input', filterList);
 
 });
+
+displayTags(tagsList)

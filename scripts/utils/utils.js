@@ -86,3 +86,14 @@ function displayListItems(listOfItemToDisplay, type){
         container.appendChild(spanItem);
     })
 }
+
+function displayTags(list){
+    if(list.length === 0){
+        return
+    }
+    tagsContainer.innerHTML = '';
+    list.forEach((item) => {
+        let tag = tagFactory(item.content, item.type).createTag();
+        tagsContainer.appendChild(tag)
+    })
+}

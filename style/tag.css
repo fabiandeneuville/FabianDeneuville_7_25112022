@@ -1,0 +1,33 @@
+#tags-container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 25px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.tag-button {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+    margin-left: 5px;
+    border-radius: 50px;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    #tags-container {
+        justify-content: center;
+    }
+}
