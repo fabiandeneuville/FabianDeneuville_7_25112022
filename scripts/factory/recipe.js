@@ -29,7 +29,7 @@ function recipeFactory(data){
             const ingredientItem = document.createElement('li');
             ingredientItem.classList.add('recipe-card-ingredients-list-item');
             const ingredientQuantity = ingredient.quantity ? ': ' + ingredient.quantity : '';
-            const quantityUnit = ingredient.unit ? ingredient.unit : "";
+            const quantityUnit = ingredient.unit ? ingredient.unit : '';
             ingredientItem.innerHTML = `<span>${ingredient.ingredient}</span> ${ingredientQuantity} ${quantityUnit}`;
             ingredientsList.appendChild(ingredientItem);
         })

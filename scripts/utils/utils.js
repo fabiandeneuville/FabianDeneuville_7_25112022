@@ -24,7 +24,7 @@ function getAllIngredientsFromRecipesList(recipesList){
     return sortedAllIngredientsOnce;
 }
 
-function getAppliancesFromRecipesList(recipesList){
+function getAllAppliancesFromRecipesList(recipesList){
     const allAppliances = [];
     recipesList.forEach((recipe) => {
         allAppliances.push(recipe.appliance);
@@ -47,7 +47,7 @@ function getAllUstensilsFromRecipesList(recipesList){
 }
 
 function capitalize(string){
-    if(string === ""){
+    if(string === ''){
         return
     }
     const temp = string.split('');
@@ -60,20 +60,20 @@ function capitalize(string){
     return capitalizedString;
 }
 
-function displayListItems(recipesList, type, container){
-    let listOfItemToDisplay = [];
+function displayListItems(listOfItemToDisplay, type){
+    let container;
     switch(type){
-        case "ingredients" :
-            listOfItemToDisplay = getAllIngredientsFromRecipesList(recipesList);
+        case 'ingredients' :
+            container = document.querySelector('.ingredients-container');
             break;
-        case "appliances" :
-            listOfItemToDisplay = getAppliancesFromRecipesList(recipesList);
+        case 'appliances' :
+            container = document.querySelector('.appliances-container');
             break;
-        case "ustensils" : 
-            listOfItemToDisplay = getAllUstensilsFromRecipesList(recipesList);
+        case 'ustensils' : 
+            container = document.querySelector('.ustensils-container');
             break
     }
-    container.innerHTML = "";
+    container.innerHTML = '';
     if(listOfItemToDisplay.length === 0){
         container.innerHTML = `
             <p>Aucun résultat</p>
