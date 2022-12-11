@@ -83,6 +83,8 @@ function displayListItems(listOfItemToDisplay, type){
         const spanItem = document.createElement('span');
         spanItem.classList.add('list-item');
         spanItem.textContent = item;
+        spanItem.setAttribute('data-type', type);
+        spanItem.addEventListener('click', addTag);
         container.appendChild(spanItem);
     })
 }
@@ -96,4 +98,13 @@ function displayTags(list){
         let tag = tagFactory(item.content, item.type).createTag();
         tagsContainer.appendChild(tag)
     })
+}
+
+function addTag(e){
+    const newTag = {
+        content: e.target.textContent,
+        type: e.target.getAttribute('data-type')
+    }
+    tagsList.push(newTag);
+    displayTags(tagsList);
 }

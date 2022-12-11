@@ -1,11 +1,7 @@
 // INDEX PAGE
 
 let currentSearch = [];
-let tagsList = [
-    {content: 'chocolat', type: 'ingredient'},
-    {content: 'four', type: 'appliance'},
-    {content: 'couteau', type: 'ustensil'}
-];
+let tagsList = [];
 
 console.log('Array methods algorithm');
 

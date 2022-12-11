@@ -5,13 +5,13 @@ function tagFactory(content, type){
         let backgroundColor;
 
         switch(type){
-            case 'ingredient':
+            case 'ingredients':
                 backgroundColor = '#3282F7'
             break
-            case 'appliance':
+            case 'appliances':
                 backgroundColor = '#68D9A4'
             break
-            case 'ustensil':
+            case 'ustensils':
                 backgroundColor = '#ED6454'
             break
             default :
