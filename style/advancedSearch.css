@@ -79,12 +79,12 @@
     transform: rotate(180deg);
 }
 
-.item {
+.list-item {
     margin-bottom: 5px;
     cursor: pointer;
 }
 
-.item:hover {
+.list-item:hover {
     text-decoration: underline;
 }
 

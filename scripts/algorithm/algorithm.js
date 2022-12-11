@@ -1,5 +1,13 @@
 // ALGORITHM
 
+let currentSearch = [];
+let currentIngredientsList = [];
+let currentAppliancesList = [];
+let currentUstensilsList = [];
+let tagsList = [];
+
+/********** Input search **********/
+
 function filterList(e){
 
     let inputName = e.target.getAttribute('data-input');
@@ -39,6 +47,7 @@ function filterList(e){
             )
         });
 
+        currentIngredientsList = filteredList;
         displayListItems(filteredList, 'ingredients');
 
     } else if (inputName === 'appliances'){
@@ -49,6 +58,7 @@ function filterList(e){
             )
         });
 
+        currentAppliancesList = filteredList;
         displayListItems(filteredList, 'appliances');
 
     } else if (inputName === 'ustensils'){
@@ -59,6 +69,41 @@ function filterList(e){
             )
         });
 
+        currentUstensilsList = filteredList;
         displayListItems(filteredList, 'ustensils');
     }
+}
+
+/********** Tags search **********/
+
+function addTag(e){
+    const content = e.target.textContent;
+    const type = e.target.getAttribute('data-type');
+    const newTag = {
+        content,
+        type
+    }
+    tagsList.push(newTag);
+    displayTags(tagsList);
+
+    let filteredList;
+    let listOfItemsToFilter;
+    switch (type){
+        case 'ingredients' :
+            listOfItemsToFilter = currentIngredientsList;
+            filteredList = listOfItemsToFilter.filter((item) => item != content);
+            currentIngredientsList = filteredList;
+            break
+        case 'appliances' :
+            listOfItemsToFilter = currentAppliancesList;
+            filteredList = listOfItemsToFilter.filter((item) => item != content);
+            currentAppliancesList = filteredList;
+            break
+        case 'ustensils' :
+            listOfItemsToFilter = currentUstensilsList;
+            filteredList = listOfItemsToFilter.filter((item) => item != content);
+            currentUstensilsList = filteredList;
+            break
+    }
+    displayListItems(filteredList, type);
 }

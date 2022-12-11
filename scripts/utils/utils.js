@@ -99,12 +99,3 @@ function displayTags(list){
         tagsContainer.appendChild(tag)
     })
 }
-
-function addTag(e){
-    const newTag = {
-        content: e.target.textContent,
-        type: e.target.getAttribute('data-type')
-    }
-    tagsList.push(newTag);
-    displayTags(tagsList);
-}

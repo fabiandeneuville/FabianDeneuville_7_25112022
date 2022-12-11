@@ -1,8 +1,5 @@
 // INDEX PAGE
 
-let currentSearch = [];
-let tagsList = [];
-
 console.log('Array methods algorithm');
 
 const recipeCardsContainer = document.querySelector('#recipe-cards-container');
@@ -16,15 +13,13 @@ const advancedSearchFields = document.querySelectorAll('.advanced-search-field')
 const tagsContainer = document.getElementById('tags-container');
 const tags = document.querySelectorAll('.tag');
 
-let recipesList = [];
-
 searchInput.addEventListener('input', filterList);
 
 async function getAllRecipes(){
     const response = await fetch('../../assets/datas/recipes.json');
     const results = await response.json();
-    recipesList = results;
     console.time("data-display-on-page-load");
+    recipesList = results;
     createRecipesList(recipesList);
     console.timeEnd("data-display-on-page-load");
     currentSearch = results;
@@ -39,10 +34,13 @@ async function init(){
 }
 
 async function displayAllListItems(){
-    const recipes = await getAllRecipes();
-    displayListItems(getAllIngredientsFromRecipesList(recipes), 'ingredients');
-    displayListItems(getAllAppliancesFromRecipesList(recipes), 'appliances');
-    displayListItems(getAllUstensilsFromRecipesList(recipes), 'ustensils');
+    currentSearch = await getAllRecipes();
+    displayListItems(getAllIngredientsFromRecipesList(currentSearch), 'ingredients');
+    currentIngredientsList = getAllIngredientsFromRecipesList(currentSearch);
+    displayListItems(getAllAppliancesFromRecipesList(currentSearch), 'appliances');
+    currentAppliancesList = getAllAppliancesFromRecipesList(currentSearch);
+    displayListItems(getAllUstensilsFromRecipesList(currentSearch), 'ustensils');
+    currentUstensilsList = getAllUstensilsFromRecipesList(currentSearch);
 }
 
 advancedSearchFields.forEach((field) => {
