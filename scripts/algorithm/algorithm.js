@@ -34,42 +34,41 @@ function filterList(e){
         currentSearch = filteredRecipesList;
     
         createRecipesList(filteredRecipesList);
-        displayListItems(getAllIngredientsFromRecipesList(filteredRecipesList), 'ingredients');
-        displayListItems(getAllAppliancesFromRecipesList(filteredRecipesList), 'appliances');
-        displayListItems(getAllUstensilsFromRecipesList(filteredRecipesList), 'ustensils');
+        displayListItems(getAllIngredientsFromRecipesList(currentSearch), 'ingredients');
+        currentIngredientsList = getAllIngredientsFromRecipesList(currentSearch);
+        displayListItems(getAllAppliancesFromRecipesList(currentSearch), 'appliances');
+        currentAppliancesList = getAllAppliancesFromRecipesList(currentSearch);
+        displayListItems(getAllUstensilsFromRecipesList(currentSearch), 'ustensils');
+        currentUstensilsList = getAllUstensilsFromRecipesList(currentSearch);
 
     } else if (inputName === 'ingredients'){
 
-        const listToFilter = getAllIngredientsFromRecipesList(currentSearch);
-        const filteredList = listToFilter.filter((item) => {
+        const filteredList = currentIngredientsList.filter((item) => {
             return (
                 item.toLowerCase().includes(searchedString)
             )
         });
 
-        currentIngredientsList = filteredList;
         displayListItems(filteredList, 'ingredients');
 
     } else if (inputName === 'appliances'){
-        const listToFilter = getAllAppliancesFromRecipesList(currentSearch);
-        const filteredList = listToFilter.filter((item) => {
+
+        const filteredList = currentAppliancesList.filter((item) => {
             return (
                 item.toLowerCase().includes(searchedString)
             )
         });
 
-        currentAppliancesList = filteredList;
         displayListItems(filteredList, 'appliances');
 
     } else if (inputName === 'ustensils'){
-        const listToFilter = getAllUstensilsFromRecipesList(currentSearch);
-        const filteredList = listToFilter.filter((item) => {
+
+        const filteredList = currentUstensilsList.filter((item) => {
             return (
                 item.toLowerCase().includes(searchedString)
             )
         });
 
-        currentUstensilsList = filteredList;
         displayListItems(filteredList, 'ustensils');
     }
 }
