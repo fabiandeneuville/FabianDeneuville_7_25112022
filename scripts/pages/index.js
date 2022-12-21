@@ -16,12 +16,13 @@ const tags = document.querySelectorAll('.tag');
 searchInput.addEventListener('input', filterList);
 
 async function getAllRecipes(){
-    const response = await fetch('../../assets/datas/recipes.json');
+    // const response = await fetch('../../assets/datas/recipes.json');
+    const response = await fetch('https://raw.githubusercontent.com/fabiandeneuville/FabianDeneuville_7_25112022/main/assets/datas/recipes.json'); // Fetching datas from Github repo
     const results = await response.json();
-    console.time("data-display-on-page-load");
+    
     recipesList = results;
     createRecipesList(recipesList);
-    console.timeEnd("data-display-on-page-load");
+    
     currentSearch = results;
     return results;
 }
@@ -29,8 +30,10 @@ async function getAllRecipes(){
 init();
 
 async function init(){
+    console.time("First page load");
     getAllRecipes();
-    displayAllListItems()
+    displayAllListItems();
+    console.timeEnd("First page load");
 }
 
 async function displayAllListItems(){

@@ -11,9 +11,11 @@ let tagsList = [];
 /********** Input search **********/
 
 function filterList(e){
+    
     let inputName = e.target.getAttribute('data-input');
     const searchedString = e.target.value.toLowerCase();
     if(inputName === 'search'){
+        console.time('Filtering recipes list using inputs');
         tagsList = [];
         tagsContainer.innerHTML = "";
         if(searchedString.length < 3 && searchedString.length !== 0){
@@ -36,6 +38,7 @@ function filterList(e){
         currentAppliancesList = getAllAppliancesFromRecipesList(currentSearch);
         displayListItems(getAllUstensilsFromRecipesList(currentSearch), 'ustensils');
         currentUstensilsList = getAllUstensilsFromRecipesList(currentSearch);
+        console.timeEnd('Filtering recipes list using inputs');
     } else if (inputName === 'ingredients'){
         const filteredList = currentIngredientsList.filter((item) => {
             return (
@@ -63,6 +66,7 @@ function filterList(e){
 /********** Tags search **********/
 
 function addTag(e){
+    console.time('Filtering recipes list by adding tag');
     e.target.parentNode.parentNode.querySelector('input').value = "";
     const content = e.target.textContent;
     const type = e.target.getAttribute('data-type');
@@ -95,9 +99,11 @@ function addTag(e){
             break
     }
     displayListItems(filteredList, type);
+    console.timeEnd('Filtering recipes list by adding tag');
 }
 
 function deleteTag(e){
+    console.time('Filtering recipes list by deleting tag');
     const type = e.target.parentNode.parentNode.getAttribute('data-type');
     const content = e.target.parentNode.parentNode.textContent;
     const newTagsList = tagsList.filter((tag) => tag.content.toLowerCase() != content.toLowerCase());
@@ -121,6 +127,7 @@ function deleteTag(e){
             displayListItems(currentUstensilsListSorted, 'ustensils');
             break;
     }
+    console.timeEnd('Filtering recipes list by deleting tag');
 }
 
 function filterWithTags(recipesList){
