@@ -1,5 +1,6 @@
 // UTILS FUNCTION
 
+// Function to render recipes cards from recipesList
 function createRecipesList(array){
     recipeCardsContainer.innerHTML = "";
     array.forEach(element => {
@@ -8,11 +9,13 @@ function createRecipesList(array){
     });
 }
 
+// Function to get all ingredients from a specific recipe
 function getIngredientsFromRecipe(recipe){
     const ingredients = recipe.ingredients.map((item) => item.ingredient.toLowerCase());
     return ingredients.toString();
 }
 
+// Function to get all ingredients, ustensils and appliance from a specific recipe
 function getAllItemsFromRecipe(recipe){
     const items = [];
     recipe.ingredients.forEach((item) => items.push(item.ingredient.toLowerCase()));
@@ -22,6 +25,7 @@ function getAllItemsFromRecipe(recipe){
     return sortedItems;
 }
 
+// Function to get all ingredients from a recipes list
 function getAllIngredientsFromRecipesList(recipesList){
     const allIngredients = [];
     recipesList.forEach((recipe) => {
@@ -34,6 +38,7 @@ function getAllIngredientsFromRecipesList(recipesList){
     return sortedAllIngredientsOnce;
 }
 
+// Function to get all appliances from a recipes list
 function getAllAppliancesFromRecipesList(recipesList){
     const allAppliances = [];
     recipesList.forEach((recipe) => {
@@ -44,6 +49,7 @@ function getAllAppliancesFromRecipesList(recipesList){
     return sortedAllAppliancesOnce;
 }
 
+// Function to get all ustensils from a recipes list
 function getAllUstensilsFromRecipesList(recipesList){
     const allUstensils = [];
     recipesList.forEach((recipe) => {
@@ -56,6 +62,7 @@ function getAllUstensilsFromRecipesList(recipesList){
     return sortedAllUstensilsFlatCapitalizedOnce;
 }
 
+// Function to capitalize list items before rendering
 function capitalize(string){
     if(string === ''){
         return
@@ -70,6 +77,7 @@ function capitalize(string){
     return capitalizedString;
 }
 
+// Function to display items in containers (ingredients, appliances, ustensils)
 function displayListItems(listOfItemToDisplay, type){
     let container;
     switch(type){
@@ -99,6 +107,7 @@ function displayListItems(listOfItemToDisplay, type){
     })
 }
 
+// Function to display tags from tagsList
 function displayTags(list){
     tagsContainer.innerHTML = "";
     if(list.length === 0){
@@ -110,6 +119,7 @@ function displayTags(list){
     })
 }
 
+// Function to get all items (ingredients, appliances, ustensils) from tags list
 function getAllItemsFromTagsList(list){
     const items = [];
     list.forEach((item) => items.push(item.content.toLowerCase()));
@@ -117,6 +127,7 @@ function getAllItemsFromTagsList(list){
     return sortedItems;
 }
 
+// Function to handle opening/closing of advanced search fields
 function toggleField(title, input, container, chevron){
     title.classList.toggle('field-closed');
     input.classList.toggle('field-closed');
