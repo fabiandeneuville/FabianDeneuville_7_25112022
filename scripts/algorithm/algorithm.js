@@ -63,17 +63,17 @@ function filterList(e){
 /********** Tags search **********/
 
 function addTag(e){
+    e.target.parentNode.parentNode.querySelector('input').value = "";
     const content = e.target.textContent;
     const type = e.target.getAttribute('data-type');
     const newTag = {
         content,
         type
     }
-
     tagsList.push(newTag);
     displayTags(tagsList);
 
-    filterWithTags(currentSearch)
+    filterWithTags(currentSearch);
 
     let filteredList;
     let listOfItemsToFilter;
