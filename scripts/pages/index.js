@@ -2,6 +2,7 @@
 
 console.log('Array methods algorithm');
 
+const totalDisplay = document.querySelector('.total-result');
 const recipeCardsContainer = document.querySelector('#recipe-cards-container');
 const searchInput = document.querySelector('#search-input');
 const noRecipesMessage = document.querySelector('#no-recipes-message');

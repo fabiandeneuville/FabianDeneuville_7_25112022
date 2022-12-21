@@ -26,3 +26,9 @@ h1.header-heading {
     text-align: center;
     color: #D04F4F;
 }
+
+.total-result {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}

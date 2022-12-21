@@ -2,6 +2,7 @@
 
 // Function to render recipes cards from recipesList
 function createRecipesList(array){
+    updateTotal(array)
     recipeCardsContainer.innerHTML = "";
     array.forEach(element => {
         const recipeCard = recipeFactory(element).createRecipeCard();
@@ -134,4 +135,13 @@ function toggleField(title, input, container, chevron){
     input.focus();
     container.classList.toggle('field-closed');
     chevron.classList.toggle('field-opened');
+}
+
+function updateTotal(list){
+    if(list.length === 0){
+        totalDisplay.style.display = "none";
+    } else {
+        totalDisplay.style.display = "block";
+        totalDisplay.innerHTML = `Résultats : ${list.length}`;
+    }
 }
