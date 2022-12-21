@@ -1,6 +1,6 @@
 // INDEX PAGE
 
-console.log('Array methods algorithm');
+console.log('Loops algorithm');
 
 const totalDisplay = document.querySelector('.total-result');
 const recipeCardsContainer = document.querySelector('#recipe-cards-container');

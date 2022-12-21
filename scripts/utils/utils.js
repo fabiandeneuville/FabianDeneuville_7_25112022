@@ -4,25 +4,38 @@
 function createRecipesList(array){
     updateTotal(array)
     recipeCardsContainer.innerHTML = "";
-    array.forEach(element => {
-        const recipeCard = recipeFactory(element).createRecipeCard();
+    for(let i = 0 ; i < array.length ; i++){
+        const recipeCard = recipeFactory(array[i]).createRecipeCard();
         recipeCardsContainer.appendChild(recipeCard);
-    });
+    }
 }
 
 // Function to get all ingredients from a specific recipe
 function getIngredientsFromRecipe(recipe){
-    const ingredients = recipe.ingredients.map((item) => item.ingredient.toLowerCase());
-    return ingredients.toString();
+    const recipeIngredients = recipe.ingredients;
+    const allIngredients = [];
+    for(let i = 0 ; i < recipeIngredients.length ; i++){
+        allIngredients.push(recipeIngredients[i].ingredient.toLowerCase()); 
+    }
+    return allIngredients.toString();
 }
 
 // Function to get all ingredients, ustensils and appliance from a specific recipe
 function getAllItemsFromRecipe(recipe){
     const items = [];
-    recipe.ingredients.forEach((item) => items.push(item.ingredient.toLowerCase()));
-    recipe.ustensils.forEach((item) => items.push(item.toLowerCase()));
-    items.push(recipe.appliance.toLowerCase());
+    const recipeIngredients = recipe.ingredients;
+    const recipeUstensils = recipe.ustensils;
+    const recipeAppliance = recipe.appliance;
+    for(let i = 0 ; i < recipeIngredients.length ; i++){
+        items.push(recipeIngredients[i].ingredient.toLowerCase());
+    }
+    for(let j = 0 ; j < recipeUstensils.length ; j++){
+        items.push(recipeUstensils[j].toLowerCase());
+    }
+    items.push(recipeAppliance.toLowerCase());
+    //
     const sortedItems = items.sort((a, b) => a.localeCompare(b));
+    //
     return sortedItems;
 }
 
