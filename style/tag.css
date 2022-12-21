@@ -1,7 +1,7 @@
 #tags-container {
     width: 90%;
     max-width: 1150px;
-    margin: 10px auto;
+    margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -31,5 +31,6 @@
 @media screen and (max-width:768px) {
     #tags-container {
         justify-content: center;
+        width: 95%;
     }
 }
