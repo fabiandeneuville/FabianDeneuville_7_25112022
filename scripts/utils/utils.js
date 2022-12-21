@@ -1,6 +1,7 @@
 // UTILS FUNCTION
 
 function createRecipesList(array){
+    recipeCardsContainer.innerHTML = "";
     array.forEach(element => {
         const recipeCard = recipeFactory(element).createRecipeCard();
         recipeCardsContainer.appendChild(recipeCard);
@@ -10,6 +11,15 @@ function createRecipesList(array){
 function getIngredientsFromRecipe(recipe){
     const ingredients = recipe.ingredients.map((item) => item.ingredient.toLowerCase());
     return ingredients.toString();
+}
+
+function getAllItemsFromRecipe(recipe){
+    const items = [];
+    recipe.ingredients.forEach((item) => items.push(item.ingredient.toLowerCase()));
+    recipe.ustensils.forEach((item) => items.push(item.toLowerCase()));
+    items.push(recipe.appliance.toLowerCase());
+    const sortedItems = items.sort((a, b) => a.localeCompare(b));
+    return sortedItems;
 }
 
 function getAllIngredientsFromRecipesList(recipesList){
@@ -96,6 +106,13 @@ function displayTags(list){
     }
     list.forEach((item) => {
         let tag = tagFactory(item.content, item.type).createTag();
-        tagsContainer.appendChild(tag)
+        tagsContainer.appendChild(tag);
     })
+}
+
+function getAllItemsFromTagsList(list){
+    const items = [];
+    list.forEach((item) => items.push(item.content.toLowerCase()));
+    const sortedItems = items.sort((a, b) => a.localeCompare(b));
+    return sortedItems;
 }
