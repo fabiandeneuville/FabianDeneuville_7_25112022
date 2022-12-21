@@ -116,3 +116,11 @@ function getAllItemsFromTagsList(list){
     const sortedItems = items.sort((a, b) => a.localeCompare(b));
     return sortedItems;
 }
+
+function toggleField(title, input, container, chevron){
+    title.classList.toggle('field-closed');
+    input.classList.toggle('field-closed');
+    input.focus();
+    container.classList.toggle('field-closed');
+    chevron.classList.toggle('field-opened');
+}

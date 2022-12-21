@@ -67,7 +67,12 @@ function filterList(e){
 
 function addTag(e){
     console.time('Filtering recipes list by adding tag');
-    e.target.parentNode.parentNode.querySelector('input').value = "";
+    const title = e.target.parentNode.parentNode.querySelector('.advanced-search-title')
+    const input = e.target.parentNode.parentNode.querySelector('.advanced-search-input');
+    const container = e.target.parentNode.parentNode.querySelector('.advanced-search-tags-container');
+    const chevron = e.target.parentNode.parentNode.querySelector('.chevron');
+    toggleField(title, input, container, chevron);
+    input.value = "";
     const content = e.target.textContent;
     const type = e.target.getAttribute('data-type');
     const newTag = {
