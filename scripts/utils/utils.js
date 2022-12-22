@@ -137,6 +137,7 @@ function toggleField(title, input, container, chevron){
     chevron.classList.toggle('field-opened');
 }
 
+// Function to display number of results
 function updateTotal(list){
     if(list.length === 0){
         totalDisplay.style.display = "none";
