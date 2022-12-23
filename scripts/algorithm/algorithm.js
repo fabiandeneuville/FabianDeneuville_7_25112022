@@ -15,12 +15,12 @@ function filterList(e){
     let inputName = e.target.getAttribute('data-input');
     const searchedString = e.target.value.toLowerCase();
     if(inputName === 'search'){
-        console.time('Filtering recipes list using inputs');
-        tagsList = [];
-        tagsContainer.innerHTML = "";
         if(searchedString.length < 3 && searchedString.length !== 0){
             return;
         }
+        console.time('GENERAL SEARCH - Filtering recipes list using inputs : ' + searchedString);
+        tagsList = [];
+        tagsContainer.innerHTML = "";
         recipeCardsContainer.innerHTML = '';
         const filteredRecipesList = recipesList.filter((recipe) => {
             return (
@@ -38,7 +38,7 @@ function filterList(e){
         currentAppliancesList = getAllAppliancesFromRecipesList(currentSearch);
         displayListItems(getAllUstensilsFromRecipesList(currentSearch), 'ustensils');
         currentUstensilsList = getAllUstensilsFromRecipesList(currentSearch);
-        console.timeEnd('Filtering recipes list using inputs');
+        console.timeEnd('GENERAL SEARCH - Filtering recipes list using inputs : ' + searchedString);
     } else if (inputName === 'ingredients'){
         const filteredList = currentIngredientsList.filter((item) => {
             return (
