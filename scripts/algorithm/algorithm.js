@@ -22,13 +22,16 @@ function filterList(e){
         tagsList = [];
         tagsContainer.innerHTML = "";
         recipeCardsContainer.innerHTML = '';
-        const filteredRecipesList = recipesList.filter((recipe) => {
-            return (
-                recipe.name.toLowerCase().includes(searchedString) ||
-                recipe.description.toLowerCase().includes(searchedString) ||
-                getIngredientsFromRecipe(recipe).includes(searchedString)
-            )
-        });
+        const filteredRecipesList = [];
+        for(let i = 0 ; i < recipesList.length ; i++){
+            if(
+            recipesList[i].name.toLowerCase().includes(searchedString) || 
+            recipesList[i].description.toLowerCase().includes(searchedString) ||
+            getIngredientsFromRecipe(recipesList[i]).includes(searchedString)
+            ){
+                filteredRecipesList.push(recipesList[i])
+            }
+        }
         noRecipesMessage.style.display = filteredRecipesList.length === 0 ? 'block' : 'none';
         currentSearch = filteredRecipesList;
         createRecipesList(filteredRecipesList);
@@ -40,25 +43,28 @@ function filterList(e){
         currentUstensilsList = getAllUstensilsFromRecipesList(currentSearch);
         console.timeEnd('GENERAL SEARCH - Filtering recipes list using inputs : ' + searchedString);
     } else if (inputName === 'ingredients'){
-        const filteredList = currentIngredientsList.filter((item) => {
-            return (
-                item.toLowerCase().includes(searchedString)
-            )
-        });
+        const filteredList = [];
+        for(let i = 0 ; i < currentIngredientsList.length; i++){
+            if(currentIngredientsList[i].toLowerCase().includes(searchedString)){
+                filteredList.push(currentIngredientsList[i]);
+            }
+        }
         displayListItems(filteredList, 'ingredients');
     } else if (inputName === 'appliances'){
-        const filteredList = currentAppliancesList.filter((item) => {
-            return (
-                item.toLowerCase().includes(searchedString)
-            )
-        });
+        const filteredList = [];
+        for(let i = 0 ; i < currentAppliancesList.length; i++){
+            if(currentAppliancesList[i].toLowerCase().includes(searchedString)){
+                filteredList.push(currentAppliancesList[i]);
+            }
+        }
         displayListItems(filteredList, 'appliances');
     } else if (inputName === 'ustensils'){
-        const filteredList = currentUstensilsList.filter((item) => {
-            return (
-                item.toLowerCase().includes(searchedString)
-            )
-        });
+        const filteredList = [];
+        for(let i = 0 ; i < currentUstensilsList.length; i++){
+            if(currentUstensilsList[i].toLowerCase().includes(searchedString)){
+                filteredList.push(currentUstensilsList[i]);
+            }
+        }
         displayListItems(filteredList, 'ustensils');
     }
 }
