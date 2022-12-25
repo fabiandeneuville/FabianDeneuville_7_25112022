@@ -6,7 +6,17 @@
 
 ## Contexte
 
-Engagés en tant freelance nous sommes missionnés par l’entreprise **Les petits plats** pour développer un algorithme de recherche de recettes de cuisine. 
+Engagés en tant freelance nous sommes missionnés par l’entreprise **Les petits plats** pour développer un algorithme de recherche de recettes de cuisine.
+
+## Objectifs
+
+- Implémenter la recherche de recettes grâce à un input de recherche principal et une recherche par mots-clés (tags)
+- Proposer deux implémentations différentes et déterminer l'implémentation à adopter au final, la recherche devant être la plus rapide possible
+
+## Compétences évaluées
+
+- Développer un algorithme pour résoudre un problème
+- Analyser un problème informatique
 
 ## Algorigramme de la recherche principale
 
