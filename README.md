@@ -7,3 +7,7 @@
 ## Contexte
 
 Engagés en tant freelance nous sommes missionnés par l’entreprise **Les petits plats** pour développer un algorithme de recherche de recettes de cuisine. 
+
+## Algorigramme de la recherche principale
+
+![Recherche principale](https://user-images.githubusercontent.com/94392055/209475973-39ee4b36-0179-4542-b2e0-ed22025bb3d8.png)
